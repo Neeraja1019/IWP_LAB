@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dynamic DOM Studio</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at 10% 20%,
+                rgba(99,102,241,0.25),
+                transparent 30%),
+
+                radial-gradient(circle at 90% 80%,
+                rgba(6,182,212,0.20),
+                transparent 30%),
+
+                #080b14;
+
+            color: #f8fafc;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        /* MAIN CARD */
+
+        .app {
+            width: 100%;
+            max-width: 1000px;
+
+            background: rgba(15,23,42,0.92);
+
+            border: 1px solid #263044;
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.45);
+
+            overflow: hidden;
+        }
+
+        /* HEADER */
+
+        .header {
+            padding: 35px 40px;
+
+            border-bottom: 1px solid #263044;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 52px;
+            height: 52px;
+
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(135deg,
+                #6366f1,
+                #06b6d4);
+
+            font-size: 24px;
+
+            box-shadow:
+                0 10px 25px rgba(99,102,241,0.3);
+        }
+
+        .header h1 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #4ade80;
+
+            background: #052e16;
+
+            border: 1px solid #166534;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            background: #4ade80;
+
+            border-radius: 50%;
+        }
+
+        /* CONTENT */
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            margin-bottom: 25px;
+        }
+
+        .intro h2 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .intro p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* BUTTONS */
+
+        .controls {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        .control-btn {
+            border: none;
+
+            padding: 16px;
+
+            border-radius: 14px;
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+        }
+
+        .add-btn {
+            background:
+                linear-gradient(135deg,
+                #4f46e5,
+                #6366f1);
+        }
+
+        .remove-btn {
+            background:
+                linear-gradient(135deg,
+                #dc2626,
+                #ef4444);
+        }
+
+        .modify-btn {
+            background:
+                linear-gradient(135deg,
+                #0891b2,
+                #06b6d4);
+        }
+
+        .control-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(0,0,0,0.25);
+        }
+
+        .control-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* DOM AREA */
+
+        .workspace {
+            background: #0b1120;
+
+            border: 1px solid #263044;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .workspace-header {
+            padding: 18px 22px;
+
+            background: #111827;
+
+            border-bottom: 1px solid #263044;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .workspace-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .workspace-title h3 {
+            font-size: 15px;
+        }
+
+        .counter {
+            color: #93c5fd;
+
+            background: #172554;
+
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+        }
+
+        #container {
+            min-height: 220px;
+
+            padding: 25px;
+        }
+
+        /* DOM ELEMENTS */
+
+        .dom-element {
+            background:
+                linear-gradient(
+                    135deg,
+                    #151e31,
+                    #111827
+                );
+
+            border: 1px solid #263044;
+
+            border-radius: 14px;
+
+            padding: 18px 20px;
+
+            margin-bottom: 12px;
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            animation: appear 0.35s ease;
+        }
+
+        .dom-icon {
+            width: 35px;
+            height: 35px;
+
+            border-radius: 9px;
+
+            background: #1e293b;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #818cf8;
+        }
+
+        .modified {
+            border-color: #ef4444;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #29151b,
+                    #1f1720
+                );
+
+            color: #fca5a5;
+
+            font-weight: bold;
+        }
+
+        /* EMPTY MESSAGE */
+
+        .empty {
+            text-align: center;
+
+            padding: 50px 20px;
+
+            color: #475569;
+
+            font-size: 13px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            padding: 20px 40px;
+
+            border-top: 1px solid #263044;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #475569;
+
+            font-size: 11px;
+        }
+
+        .footer span {
+            color: #818cf8;
+        }
+
+        /* ANIMATION */
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px;
+
+                align-items: flex-start;
+
+                gap: 15px;
+            }
+
+            .status {
+                display: none;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                padding: 18px 25px;
+
+                flex-direction: column;
+
+                gap: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="brand">
+
+            <div class="logo">
+                &#9881;
+            </div>
+
+            <div>
+
+                <h1>Dynamic DOM Studio</h1>
+
+                <p>
+                    Interactive Document Object Model Playground
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            DOM ACTIVE
+
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+
+        <div class="intro">
+
+            <h2>
+                DOM Manipulation
+            </h2>
+
+            <p>
+                Create, remove and modify HTML elements dynamically
+                using JavaScript.
+            </p>
+
+        </div>
+
+
+        <!-- CONTROLS -->
+
+        <div class="controls">
+
+            <button
+                class="control-btn add-btn"
+                onclick="addElement()">
+
+                <span>&#43;</span>
+
+                Add Element
+
+            </button>
+
+
+            <button
+                class="control-btn remove-btn"
+                onclick="removeElement()">
+
+                <span>&#8722;</span>
+
+                Remove Element
+
+            </button>
+
+
+            <button
+                class="control-btn modify-btn"
+                onclick="modifyElement()">
+
+                <span>&#9998;</span>
+
+                Modify Element
+
+            </button>
+
+        </div>
+
+
+        <!-- WORKSPACE -->
+
+        <div class="workspace">
+
+
+            <div class="workspace-header">
+
+                <div class="workspace-title">
+
+                    <span>&#128196;</span>
+
+                    <h3>
+                        Live DOM Workspace
+                    </h3>
+
+                </div>
+
+
+                <div
+                    class="counter"
+                    id="counter">
+
+                    1 Element
+
+                </div>
+
+            </div>
+
+
+            <div id="container">
+
+                <div class="dom-element">
+
+                    <div class="dom-icon">
+                        &#60;&#62;
+                    </div>
+
+                    <p id="para1">
+                        This is the first paragraph.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <div>
+            JavaScript DOM Manipulation
+        </div>
+
+        <div>
+            Built with <span>HTML + CSS + JavaScript</span>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* UPDATE ELEMENT COUNTER */
+
+function updateCounter() {
+
+    let container =
+        document.getElementById("container");
+
+    let count =
+        container.querySelectorAll(".dom-element").length;
+
+    let counter =
+        document.getElementById("counter");
+
+    counter.textContent =
+        count + (count === 1 ? " Element" : " Elements");
+
+}
+
+
+/* ADD ELEMENT */
+
+function addElement() {
+
+    let newPara =
+        document.createElement("div");
+
+    newPara.className =
+        "dom-element";
+
+    newPara.innerHTML =
+
+        '<div class="dom-icon">&#43;</div>' +
+        '<p>New paragraph added dynamically!</p>';
+
+    document
+        .getElementById("container")
+        .appendChild(newPara);
+
+    updateCounter();
+
+}
+
+
+/* REMOVE ELEMENT */
+
+function removeElement() {
+
+    let container =
+        document.getElementById("container");
+
+    let elements =
+        container.querySelectorAll(".dom-element");
+
+    if (elements.length > 1) {
+
+        elements[elements.length - 1].remove();
+
+    }
+
+    else {
+
+        alert("The original element cannot be removed.");
+
+    }
+
+    updateCounter();
+
+}
+
+
+/* MODIFY ELEMENT */
+
+function modifyElement() {
+
+    let para =
+        document.getElementById("para1");
+
+    para.textContent =
+        "This paragraph has been modified dynamically!";
+
+    let parent =
+        para.parentElement;
+
+    parent.classList.add("modified");
+
+    updateCounter();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
