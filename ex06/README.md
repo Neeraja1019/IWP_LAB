@@ -43,7 +43,7 @@ If your lab uses VS Code with the **Community Server Connectors** extension:
 
 2. **Deploy `ex06`:**
    - Right-click your Tomcat server in the **SERVERS** view -> Select **Add Deployment...**.
-   - Select the `ex06` folder (`c:\Users\SAI\Desktop\Lab\IWP\ex06`).
+   - Select the `ex06` folder (`c:\Users\Desktop\Lab\IWP\ex06`).
 
 3. **Start the Server:**
    - Right-click the server -> Click **Start Server**.
@@ -59,7 +59,7 @@ If your lab uses VS Code with the **Community Server Connectors** extension:
 ### Step 1: Deploy to Apache Tomcat
 Copy the `ex06` folder into Tomcat's `webapps` directory:
 ```cmd
-xcopy /E /I /Y "c:\Users\SAI\Desktop\Lab\IWP\ex06" "%CATALINA_HOME%\webapps\ex06"
+xcopy /E /I /Y "c:\Users\Desktop\Lab\IWP\ex06" "%CATALINA_HOME%\webapps\ex06"
 ```
 *(If `%CATALINA_HOME%` is not set, manually copy and paste the `ex06` folder into `C:\apache-tomcat-10.1.x\webapps\ex06`)*
 
