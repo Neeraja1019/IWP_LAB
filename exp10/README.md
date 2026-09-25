@@ -70,7 +70,7 @@ You should see:
 ### Step 3: Run the Application
 
 #### Option A: Run directly in VS Code (Recommended)
-1. Open folder `c:\Users\SAI\Desktop\Lab\IWP\ex10` in VS Code.
+1. Open folder `c:\Users\Desktop\Lab\IWP\ex10` in VS Code.
 2. Open `src/main/java/com/example/realtime/RealtimeMongoVisualizationApplication.java`.
 3. Click the **`Run`** button visible above `public static void main(String[] args)` (or press `F5`).
 4. Watch the VS Code terminal output:
@@ -82,7 +82,7 @@ You should see:
 #### Option B: Run via Maven CLI
 Open Command Prompt in `ex10` and run:
 ```cmd
-cd c:\Users\SAI\Desktop\Lab\IWP\ex10
+cd c:\Users\Desktop\Lab\IWP\ex10
 mvn clean package -DskipTests
 mvn spring-boot:run
 ```
