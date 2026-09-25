@@ -51,7 +51,7 @@ net start MySQL80
 ### Step 2: Launch the App
 
 #### Option A: Run directly in VS Code (Recommended)
-1. Open folder `c:\Users\SAI\Desktop\Lab\IWP\ex09` in VS Code.
+1. Open folder `c:\Users\Desktop\Lab\IWP\ex09` in VS Code.
 2. Open `src/main/java/com/example/employeecrud/EmployeeCrudApplication.java`.
 3. Click the **`Run`** button that appears right above `public static void main(String[] args)` (or press `F5`).
 4. Look for:
@@ -63,7 +63,7 @@ net start MySQL80
 #### Option B: Run via Maven CLI
 Open Command Prompt in `ex09` and run:
 ```cmd
-cd c:\Users\SAI\Desktop\Lab\IWP\ex09
+cd c:\Users\Desktop\Lab\IWP\ex09
 mvn clean package -DskipTests
 mvn spring-boot:run
 ```
