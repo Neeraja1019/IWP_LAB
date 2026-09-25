@@ -7,10 +7,10 @@ To implement a dynamic web-based feedback system using JavaServer Pages (JSP) in
 
 ## 1. Project Directory Structure
 
-Ensure the `ex06` folder contains the following structure:
+Ensure the `exp6` folder contains the following structure:
 
 ```text
-ex06/
+exp6/
 ├── feedback.jsp                   # JSP input form for feedback
 ├── submitFeedback.jsp             # JSP processing sessions, cookies, and JSTL
 ├── README.md                      # Execution guide
@@ -41,27 +41,27 @@ If your lab uses VS Code with the **Community Server Connectors** extension:
    - Click **Create New Server...** -> Select **Apache Tomcat** -> Choose **Tomcat 10.x** (or 11.x).
    - Point to your local Tomcat folder (e.g., `C:\apache-tomcat-10.1.x`).
 
-2. **Deploy `ex06`:**
+2. **Deploy `exp6`:**
    - Right-click your Tomcat server in the **SERVERS** view -> Select **Add Deployment...**.
-   - Select the `ex06` folder (`c:\Users\Desktop\Lab\IWP\ex06`).
+   - Select the `exp6` folder (`c:\Users\Desktop\Lab\IWP\exp6`).
 
 3. **Start the Server:**
    - Right-click the server -> Click **Start Server**.
    - Watch the server initialization logs in the terminal.
 
 4. **Open in Browser:**
-   - Open: `http://localhost:8080/ex06/feedback.jsp`
+   - Open: `http://localhost:8080/exp6/feedback.jsp`
 
 ---
 
 ## 4. Alternative: Run via Command Prompt (Tomcat CLI)
 
 ### Step 1: Deploy to Apache Tomcat
-Copy the `ex06` folder into Tomcat's `webapps` directory:
+Copy the `exp6` folder into Tomcat's `webapps` directory:
 ```cmd
-xcopy /E /I /Y "c:\Users\Desktop\Lab\IWP\ex06" "%CATALINA_HOME%\webapps\ex06"
+xcopy /E /I /Y "c:\Users\Desktop\Lab\IWP\exp6" "%CATALINA_HOME%\webapps\exp6"
 ```
-*(If `%CATALINA_HOME%` is not set, manually copy and paste the `ex06` folder into `C:\apache-tomcat-10.1.x\webapps\ex06`)*
+*(If `%CATALINA_HOME%` is not set, manually copy and paste the `exp6` folder into `C:\apache-tomcat-10.1.x\webapps\exp6`)*
 
 ### Step 2: Start Apache Tomcat
 ```cmd
@@ -77,7 +77,7 @@ startup.bat
 ### 1. Open the Feedback Form
 Open your browser and navigate to:
 ```text
-http://localhost:8080/ex06/feedback.jsp
+http://localhost:8080/exp6/feedback.jsp
 ```
 
 ### 2. Submit Feedback 1
@@ -95,7 +95,7 @@ Previous Feedbacks:
 ```
 
 ### 3. Submit Feedback 2 (Verify Session, Cookies, & JSTL List)
-- Return to `http://localhost:8080/ex06/feedback.jsp`
+- Return to `http://localhost:8080/exp6/feedback.jsp`
 - **Name:** `Bob`
 - **Feedback:** `Great hands-on coding exercises.`
 - Click **Submit Feedback**
