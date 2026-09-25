@@ -8,7 +8,7 @@ To develop a Spring Boot and Spring MVC web application that performs full CRUD 
 ## 1. Project Directory Structure
 
 ```text
-ex07/
+exp7/
 ├── pom.xml                                               # Maven dependencies & build config
 ├── README.md                                             # Execution guide
 └── src/
@@ -64,11 +64,11 @@ Defines the `Student` table schema with validation:
 Extends `JpaRepository<Student, Long>` providing built-in database operations (`save`, `findAll`, `findById`, `deleteById`).
 
 ### D. Student Controller (`controller/StudentController.java`)
-- `GET /ex07/students` — Displays list of all students (`list.html`).
-- `GET /ex07/students/new` — Displays form to add a new student (`form.html`).
-- `POST /ex07/students` — Validates and saves/updates student in MySQL.
-- `GET /ex07/students/{id}/edit` — Populates edit form with existing student details.
-- `POST /ex07/students/{id}/delete` — Deletes the student by ID.
+- `GET /exp7/students` — Displays list of all students (`list.html`).
+- `GET /exp7/students/new` — Displays form to add a new student (`form.html`).
+- `POST /exp7/students` — Validates and saves/updates student in MySQL.
+- `GET /exp7/students/{id}/edit` — Populates edit form with existing student details.
+- `POST /exp7/students/{id}/delete` — Deletes the student by ID.
 
 ---
 
@@ -88,19 +88,19 @@ net start MySQL80
 ### Step 2: Run the Application
 
 #### Option A: Run directly in VS Code (Recommended)
-1. Open VS Code and open folder `c:\Users\SAI\Desktop\Lab\IWP\ex07`.
+1. Open VS Code and open folder `c:\Users\Desktop\Lab\IWP\exp7`.
 2. Open `src/main/java/com/example/studentcrud/StudentCrudApplication.java`.
 3. Click the **`Run`** button that appears right above `public static void main(String[] args)` (or press `F5`).
 4. Watch the integrated terminal until you see:
    ```text
-   Tomcat started on port 8080 (http) with context path '/ex07'
+   Tomcat started on port 8080 (http) with context path '/exp7'
    Started StudentCrudApplication in X.XXX seconds
    ```
 
 #### Option B: Run via Maven CLI
 Open Command Prompt in `ex07` and run:
 ```cmd
-cd c:\Users\SAI\Desktop\Lab\IWP\ex07
+cd c:\Users\Desktop\Lab\IWP\exp7
 mvn clean package -DskipTests
 mvn spring-boot:run
 ```
@@ -117,13 +117,13 @@ java -jar target\student-crud-0.0.1-SNAPSHOT.jar
 ### 1. View Student List (Read)
 Open your browser and navigate to:
 ```text
-http://localhost:8080/ex07/students
+http://localhost:8080/exp7/students
 ```
 
 ### 2. Add a New Student (Create)
 1. Click **+ Add Student** or navigate to:
    ```text
-   http://localhost:8080/ex07/students/new
+   http://localhost:8080/exp7/students/new
    ```
 2. Enter student details:
    - **Name:** `Alice Johnson`
