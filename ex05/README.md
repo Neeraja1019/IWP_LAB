@@ -52,7 +52,7 @@ If your lab uses VS Code with the **Community Server Connectors** extension:
 
 3. **Deploy `ex05`:**
    - Right-click your Tomcat server in the **SERVERS** panel -> Select **Add Deployment...**.
-   - Select the `ex05` folder (`c:\Users\SAI\Desktop\Lab\IWP\ex05`).
+   - Select the `ex05` folder (`c:\Users\Desktop\Lab\IWP\ex05`).
 
 4. **Start the Server:**
    - Right-click Tomcat -> Click **Start Server**.
@@ -69,14 +69,14 @@ If running outside VS Code via Command Prompt:
 
 ### Step 1: Compile the Java Servlet
 ```cmd
-cd c:\Users\SAI\Desktop\Lab\IWP\ex05
+cd c:\Users\Desktop\Lab\IWP\ex05
 javac -cp "WEB-INF\lib\jakarta.servlet-api.jar" -d WEB-INF\classes src\LoginServlet.java
 ```
 
 ### Step 2: Deploy to Apache Tomcat
 Copy the `ex05` folder into Tomcat's `webapps` directory:
 ```cmd
-xcopy /E /I /Y "c:\Users\SAI\Desktop\Lab\IWP\ex05" "%CATALINA_HOME%\webapps\ex05"
+xcopy /E /I /Y "c:\Users\Desktop\Lab\IWP\ex05" "%CATALINA_HOME%\webapps\ex05"
 ```
 *(If `%CATALINA_HOME%` is not set, manually copy the `ex05` folder and paste it into your Tomcat `webapps` directory, e.g. `C:\apache-tomcat-10.1.x\webapps\ex05`)*
 
