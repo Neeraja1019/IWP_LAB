@@ -8,7 +8,7 @@ To create a Spring Boot application demonstrating Aspect-Oriented Programming (A
 ## 1. Project Directory Structure
 
 ```text
-ex08/
+exp8/
 ├── pom.xml                                               # Maven dependencies (spring-boot-starter-aop)
 ├── README.md                                             # Execution guide
 └── src/
@@ -38,19 +38,19 @@ ex08/
 ## 3. How to Run the Application
 
 ### Option A: Run directly in VS Code (Recommended)
-1. Open folder `c:\Users\SAI\Desktop\Lab\IWP\ex08` in VS Code.
+1. Open folder `c:\Users\Desktop\Lab\IWP\exp8` in VS Code.
 2. Open `src/main/java/com/example/aopdemo/AopDemoApplication.java`.
 3. Click the **`Run`** button that appears right above `public static void main(String[] args)` (or press `F5`).
 4. Watch the VS Code integrated terminal start the server:
    ```text
-   Tomcat started on port 8080 (http) with context path '/ex08'
+   Tomcat started on port 8080 (http) with context path '/exp8'
    Started AopDemoApplication in X.XXX seconds
    ```
 
 ### Option B: Run via Maven CLI
 Open Command Prompt in `ex08` and run:
 ```cmd
-cd c:\Users\SAI\Desktop\Lab\IWP\ex08
+cd c:\Users\Desktop\Lab\IWP\ex08
 mvn clean package -DskipTests
 mvn spring-boot:run
 ```
@@ -67,7 +67,7 @@ java -jar target\aopdemo-0.0.1-SNAPSHOT.jar
 ### Test Case 1: GET Request (Fetch Student by ID)
 Open your web browser and navigate to:
 ```text
-http://localhost:8080/ex08/students/101
+http://localhost:8080/exp8/students/101
 ```
 
 **Browser Displays:**
@@ -90,12 +90,12 @@ Return Value: Student{id=101, name='Aswathi E'}
 ### Test Case 2: POST Request (Register Student)
 Open PowerShell and run:
 ```powershell
-Invoke-RestMethod -Method Post -Uri "http://localhost:8080/ex08/students/register?name=Rajesh"
+Invoke-RestMethod -Method Post -Uri "http://localhost:8080/exp8/students/register?name=Rajesh"
 ```
 
 *Or using Command Prompt curl:*
 ```cmd
-curl.exe -X POST "http://localhost:8080/ex08/students/register?name=Rajesh"
+curl.exe -X POST "http://localhost:8080/exp8/students/register?name=Rajesh"
 ```
 
 **Terminal Response:**
