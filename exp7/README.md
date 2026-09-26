@@ -33,7 +33,7 @@ exp7/
 ## 2. Source Code & Configuration Overview
 
 ### A. Database Configuration (`src/main/resources/application.properties`)
-Configures MySQL connection and context path `/ex07`:
+Configures MySQL connection and context path `/exp7`:
 
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/studentdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
@@ -47,7 +47,7 @@ spring.jpa.properties.hibernate.format_sql=true
 spring.thymeleaf.cache=false
 
 server.port=8080
-server.servlet.context-path=/ex07
+server.servlet.context-path=/exp7
 ```
 
 > **Note:** If your lab computer has a different MySQL root password (e.g., `root`, `admin`, or empty `""`), update `spring.datasource.password` in line 3.
@@ -98,7 +98,7 @@ net start MySQL80
    ```
 
 #### Option B: Run via Maven CLI
-Open Command Prompt in `ex07` and run:
+Open Command Prompt in `exp7` and run:
 ```cmd
 cd c:\Users\Desktop\Lab\IWP\exp7
 mvn clean package -DskipTests
@@ -157,6 +157,6 @@ http://localhost:8080/exp7/students
 | Error | Cause | Solution |
 | :--- | :--- | :--- |
 | **`Access denied for user 'root'@'localhost'`** | Lab MySQL root password is not `MySQL@123`. | Open `src/main/resources/application.properties` and change `spring.datasource.password` to your lab MySQL password. |
-| **`Port 8080 was already in use`** | Another application (Tomcat or previous experiment) is using port 8080. | In `application.properties`, change `server.port=8081` and access via `http://localhost:8081/ex07/students`. |
+| **`Port 8080 was already in use`** | Another application (Tomcat or previous experiment) is using port 8080. | In `application.properties`, change `server.port=8081` and access via `http://localhost:8081/exp7/students`. |
 | **`10-digit phone` validation error** | Phone entered was not exactly 10 digits. | Enter a valid 10-digit phone number (e.g., `9876543210`). |
-| **`404 Not Found`** | Visited `http://localhost:8080/students` without the context path. | Always include `/ex07`: `http://localhost:8080/ex07/students`. |
+| **`404 Not Found`** | Visited `http://localhost:8080/students` without the context path. | Always include `/ex07`: `http://localhost:8080/exp7/students`. |
