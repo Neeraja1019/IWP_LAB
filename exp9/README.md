@@ -8,7 +8,7 @@ To develop a full-featured web application using Spring Boot and Spring MVC with
 ## 1. Project Directory Structure
 
 ```text
-ex09/
+exp9/
 ├── pom.xml                                               # Maven dependencies & build settings
 ├── README.md                                             # Execution guide
 └── src/
@@ -51,19 +51,19 @@ net start MySQL80
 ### Step 2: Launch the App
 
 #### Option A: Run directly in VS Code (Recommended)
-1. Open folder `c:\Users\Desktop\Lab\IWP\ex09` in VS Code.
+1. Open folder `c:\Users\Desktop\Lab\IWP\exp9` in VS Code.
 2. Open `src/main/java/com/example/employeecrud/EmployeeCrudApplication.java`.
 3. Click the **`Run`** button that appears right above `public static void main(String[] args)` (or press `F5`).
 4. Look for:
    ```text
-   Tomcat started on port 8080 (http) with context path '/ex09'
+   Tomcat started on port 8080 (http) with context path '/exp9'
    Started EmployeeCrudApplication in X.XXX seconds
    ```
 
 #### Option B: Run via Maven CLI
-Open Command Prompt in `ex09` and run:
+Open Command Prompt in `exp9` and run:
 ```cmd
-cd c:\Users\Desktop\Lab\IWP\ex09
+cd c:\Users\Desktop\Lab\IWP\exp9
 mvn clean package -DskipTests
 mvn spring-boot:run
 ```
@@ -80,13 +80,13 @@ java -jar target\employee-crud-0.0.1-SNAPSHOT.jar
 ### 1. View Employee List (Read)
 Open your web browser and navigate to:
 ```text
-http://localhost:8080/ex09/employees
+http://localhost:8080/exp9/employees
 ```
 
 ### 2. Add New Employee (Create)
 1. Click **+ Add Employee** or go to:
    ```text
-   http://localhost:8080/ex09/employees/new
+   http://localhost:8080/exp9/employees/new
    ```
 2. Enter valid details:
    - **Name:** `Sarah Connor`
@@ -125,5 +125,5 @@ http://localhost:8080/ex09/employees
 | :--- | :--- | :--- |
 | **`Access denied for user 'root'@'localhost'`** | Lab MySQL password is not `MySQL@123`. | Change `spring.datasource.password` in `src/main/resources/application.properties`. |
 | **`Communications link failure`** | MySQL service is not running. | Run `net start MySQL80` or start MySQL from Services / XAMPP. |
-| **`Port 8080 was already in use`** | Another process is occupying port 8080. | Change `server.port=8081` in `application.properties` and browse to `http://localhost:8081/ex09/employees`. |
-| **`404 Not Found`** | Omitted the context path `/ex09`. | Visit `http://localhost:8080/ex09/employees` (not `/employees`). |
+| **`Port 8080 was already in use`** | Another process is occupying port 8080. | Change `server.port=8081` in `application.properties` and browse to `http://localhost:8081/exp9/employees`. |
+| **`404 Not Found`** | Omitted the context path `/ex09`. | Visit `http://localhost:8080/exp9/employees` (not `/employees`). |
