@@ -8,7 +8,7 @@ To create a reactive web application that integrates MongoDB Change Streams with
 ## 1. Project Directory Structure
 
 ```text
-ex10/
+exp10/
 ├── pom.xml                                               # Maven dependencies (WebFlux & Reactive Mongo)
 ├── README.md                                             # Execution guide
 └── src/
@@ -70,7 +70,7 @@ You should see:
 ### Step 3: Run the Application
 
 #### Option A: Run directly in VS Code (Recommended)
-1. Open folder `c:\Users\Desktop\Lab\IWP\ex10` in VS Code.
+1. Open folder `c:\Users\Desktop\Lab\IWP\exp10` in VS Code.
 2. Open `src/main/java/com/example/realtime/RealtimeMongoVisualizationApplication.java`.
 3. Click the **`Run`** button visible above `public static void main(String[] args)` (or press `F5`).
 4. Watch the VS Code terminal output:
@@ -80,9 +80,9 @@ You should see:
    ```
 
 #### Option B: Run via Maven CLI
-Open Command Prompt in `ex10` and run:
+Open Command Prompt in `exp10` and run:
 ```cmd
-cd c:\Users\Desktop\Lab\IWP\ex10
+cd c:\Users\Desktop\Lab\IWP\exp10
 mvn clean package -DskipTests
 mvn spring-boot:run
 ```
@@ -99,7 +99,7 @@ java -jar target\realtime-mongo-visualization-0.0.1-SNAPSHOT.jar
 ### 1. Open the Live Chart Dashboard
 Open your web browser and navigate to:
 ```text
-http://localhost:8080/ex10/index.html
+http://localhost:8080/exp10/index.html
 ```
 
 You will see:
@@ -126,4 +126,4 @@ You will see:
 | :--- | :--- | :--- |
 | **`Server at localhost:27017 is not a member of rs0`** | MongoDB was started without `--replSet rs0` or `rs.initiate()` was not run. | Follow Step 1 & Step 2 to start `mongod --replSet rs0` and run `mongosh --eval "rs.initiate()"`. |
 | **`Address already in use` on port 27017** | MongoDB is already running as an automatic Windows service. | Run `net stop MongoDB` in Admin CMD, then restart with `--replSet rs0`. |
-| **`Port 8080 was already in use`** | Another service (Tomcat/Spring Boot) is using port 8080. | In `application.properties`, set `server.port=8081` and visit `http://localhost:8081/ex10/index.html`. |
+| **`Port 8080 was already in use`** | Another service (Tomcat/Spring Boot) is using port 8080. | In `application.properties`, set `server.port=8081` and visit `http://localhost:8081/exp10/index.html`. |
