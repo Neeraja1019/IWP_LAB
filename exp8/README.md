@@ -48,9 +48,9 @@ exp8/
    ```
 
 ### Option B: Run via Maven CLI
-Open Command Prompt in `ex08` and run:
+Open Command Prompt in `exp8` and run:
 ```cmd
-cd c:\Users\Desktop\Lab\IWP\ex08
+cd c:\Users\Desktop\Lab\IWP\exp8
 mvn clean package -DskipTests
 mvn spring-boot:run
 ```
